@@ -47,27 +47,60 @@
   \**********************/
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
-	var Button = React.createClass({
-	    displayName: 'Button',
+	(function () {
 	
-	    getInitialState: function getInitialState() {
-	        return { counter: 0 };
-	    },
-	    handleClick: function handleClick() {
-	        this.setState({ counter: this.state.counter + 1 });
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'button',
-	            { onClick: this.handleClick },
-	            this.state.counter
-	        );
-	    }
-	});
+	    var Button = React.createClass({
+	        displayName: "Button",
 	
-	ReactDOM.render(React.createElement(Button, null), document.getElementById('root'));
+	        render: function render() {
+	            return React.createElement(
+	                "a",
+	                { className: "waves-effect waves-light btn",
+	                    onClick: this.props.clickEvent },
+	                this.props.label
+	            );
+	        }
+	    });
+	
+	    var Result = React.createClass({
+	        displayName: "Result",
+	
+	        render: function render() {
+	            return React.createElement(
+	                "div",
+	                { "class": "row" },
+	                React.createElement(
+	                    "div",
+	                    null,
+	                    this.props.count
+	                )
+	            );
+	        }
+	    });
+	
+	    var Main = React.createClass({
+	        displayName: "Main",
+	
+	        getInitialState: function getInitialState() {
+	            return { counter: 0 };
+	        },
+	        handleClick: function handleClick() {
+	            this.setState({ counter: this.state.counter + 1 });
+	        },
+	        render: function render() {
+	            return React.createElement(
+	                "div",
+	                { className: "container" },
+	                React.createElement(Button, { label: 'Count!', clickEvent: this.handleClick }),
+	                React.createElement(Result, { count: this.state.counter })
+	            );
+	        }
+	    });
+	
+	    ReactDOM.render(React.createElement(Main, null), document.getElementById('root'));
+	})();
 
 /***/ }
 /******/ ]);
