@@ -54,11 +54,14 @@
 	    var Button = React.createClass({
 	        displayName: "Button",
 	
+	        clickEvent: function clickEvent() {
+	            this.props.clickEvent(this.props.label);
+	        },
 	        render: function render() {
 	            return React.createElement(
 	                "a",
 	                { className: "waves-effect waves-light btn",
-	                    onClick: this.props.clickEvent },
+	                    onClick: this.clickEvent },
 	                this.props.label
 	            );
 	        }
@@ -70,7 +73,7 @@
 	        render: function render() {
 	            return React.createElement(
 	                "div",
-	                { "class": "row" },
+	                { className: "row" },
 	                React.createElement(
 	                    "div",
 	                    null,
@@ -86,14 +89,21 @@
 	        getInitialState: function getInitialState() {
 	            return { counter: 0 };
 	        },
-	        handleClick: function handleClick() {
-	            this.setState({ counter: this.state.counter + 1 });
+	        handleClick: function handleClick(val) {
+	            this.setState({ counter: this.state.counter + parseInt(val) });
 	        },
 	        render: function render() {
 	            return React.createElement(
 	                "div",
-	                { className: "container" },
-	                React.createElement(Button, { label: 'Count!', clickEvent: this.handleClick }),
+	                null,
+	                React.createElement(
+	                    "div",
+	                    null,
+	                    React.createElement(Button, { label: '1', clickEvent: this.handleClick }),
+	                    React.createElement(Button, { label: '5', clickEvent: this.handleClick }),
+	                    React.createElement(Button, { label: '10', clickEvent: this.handleClick }),
+	                    React.createElement(Button, { label: '100', clickEvent: this.handleClick })
+	                ),
 	                React.createElement(Result, { count: this.state.counter })
 	            );
 	        }

@@ -1,10 +1,13 @@
 (()=> {
 
     var Button = React.createClass({
+        clickEvent: function () {
+            this.props.clickEvent(this.props.label)
+        },
         render: function () {
             return (
                 <a className="waves-effect waves-light btn"
-                   onClick={this.props.clickEvent}>
+                   onClick={this.clickEvent}>
                     {this.props.label}
                 </a>
             )
@@ -14,7 +17,7 @@
     var Result = React.createClass({
         render: function () {
             return (
-                <div class="row">
+                <div className="row">
                     <div>{this.props.count}</div>
                 </div>
             )
@@ -25,13 +28,18 @@
         getInitialState: function () {
             return {counter: 0};
         },
-        handleClick: function () {
-            this.setState({counter: this.state.counter + 1});
+        handleClick: function (val) {
+            this.setState({counter: this.state.counter + parseInt(val)});
         },
         render: function () {
             return (
-                <div className="container">
-                    <Button label={'Count!'} clickEvent={this.handleClick}/>
+                <div>
+                    <div>
+                        <Button label={'1'} clickEvent={this.handleClick}/>
+                        <Button label={'5'} clickEvent={this.handleClick}/>
+                        <Button label={'10'} clickEvent={this.handleClick}/>
+                        <Button label={'100'} clickEvent={this.handleClick}/>
+                    </div>
                     <Result count={this.state.counter}/>
                 </div>
             )
