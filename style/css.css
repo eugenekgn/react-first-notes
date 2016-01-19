@@ -1,3 +1,11 @@
 a.btn {
     margin: 2px;
 }
+
+.tile {
+    margin: 5px;
+}
+
+.thumbnail img {
+    border-radius: 6px;
+}

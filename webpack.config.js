@@ -1,8 +1,8 @@
 module.exports = {
-    entry: './app/main.jsx',
+    entry: './app/github-card/main.jsx',
     output: {
         path: __dirname + '/js/',
-        filename: 'bundle.js'
+        filename: 'bundle-github.js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
