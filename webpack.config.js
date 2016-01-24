@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './app/github-card/main.jsx',
+    entry: './app/game/main.jsx',
     output: {
         path: __dirname + '/js/',
         filename: 'bundle-github.js'

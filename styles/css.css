@@ -1,0 +1,63 @@
+/*a.btn {
+    margin: 2px;
+}
+
+.tile {
+    margin: 5px;
+}
+
+.thumbnail img {
+    border-radius: 6px;
+}
+*/
+/* game */
+body .NumberStyle {
+  display: inline-block;
+  margin: 0.5em;
+  background-color: #BBBBBB;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+body #stars-frame,
+body #answer-frame {
+  width: 40%;
+  float: left;
+}
+body #stars-frame .well,
+body #answer-frame .well {
+  height: 150px;
+}
+body #button-frame {
+  width: 20%;
+  float: left;
+  text-align: center;
+  margin-top: 50px;
+}
+body #numbers-frame .number {
+  display: inline-block;
+  margin: 0.5em;
+  background-color: #BBBBBB;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+body #answer-frame .well span {
+  display: inline-block;
+  margin: 0.5em;
+  background-color: #BBBBBB;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+body #numbers-frame .selected-true {
+  background-color: #e8e8e8;
+  color: #DDDDDD;
+  cursor: not-allowed;
+}

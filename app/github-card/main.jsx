@@ -1,6 +1,5 @@
 import GitHubModel from './github.model'
 
-
 let Card = React.createClass({
     getInitialState(){
         return {};
@@ -14,20 +13,20 @@ let Card = React.createClass({
     },
     render () {
         return (
-            <div className="tile col-xs-4 col-md-4">
+            <div id={this.state.id} className="tile col-xs-4 col-md-4">
                 <div className="thumbnail">
                     <img src={this.state.avatar_url} height="230" width="230"/>
                     <div className="caption">
                         <a href={this.state.html_url}>
                             <h3>{this.state.name}</h3>
                         </a>
-                        <p>Text</p>
+                        <a href={this.state.url}>{this.state.login }</a>
                     </div>
                 </div>
             </div>
         );
     }
-})
+});
 
 
 let Form = React.createClass({
@@ -42,8 +41,16 @@ let Form = React.createClass({
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <input ref="login" placeholder="github login"/>
-                <button type="submit" className="btn btn-default">Add</button>
+                <div className="row">
+                    <div className="col-sm-6">
+                        <div className="input-group">
+                            <input type="text" ref="login" className="form-control" placeholder="github login"/>
+                            <span className="input-group-btn">
+                             <button className="btn btn-default" type="submit">Go!</button>
+                         </span>
+                        </div>
+                    </div>
+                </div>
             </form>
         );
     }
